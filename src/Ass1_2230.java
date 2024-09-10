@@ -2,7 +2,7 @@ import static java.util.Arrays.binarySearch;
 
 public class Ass1_2230 {
     public static void main(String[] args){
-        int size = 1000;
+        int size = 35;
         int[] num = new int[size];
         for (int i = 0; i < size; i++) {
                 num[i] = i + 1;
@@ -13,7 +13,8 @@ public class Ass1_2230 {
         linear(num);
         quadratic(num);
         cubic(num);
-        log(num, 50);
+        log(num, 15);
+        exponential(size);
     }
     public static void linear(int [] n){
         System.out.println("------Linear------");
@@ -76,5 +77,23 @@ public class Ass1_2230 {
         //System.out.println("number of prints: " + count);
         System.out.println("execution time: " + duration + " nanoseconds");
     }
-    public static void exponential(int)
+    public static void exponential(int n){
+        System.out.println("------Exponential------");
+        double startTime = System.nanoTime();
+       // int count = 0;
+        System.out.println(exp(n));
+        double endTime = System.nanoTime();
+        double duration = endTime - startTime;
+
+        //System.out.println("number of prints: " + count);
+        System.out.println("execution time: " + duration + " nanoseconds");
+    }
+    public static int exp(int n){
+       if(n <= 1){
+           return n;
+       }else{
+           return exp(n - 1) + exp(n - 2);
+       }
+
+    }
 }
