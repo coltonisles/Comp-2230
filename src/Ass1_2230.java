@@ -96,4 +96,7 @@ public class Ass1_2230 {
        }
 
     }
+    public static void nLog(){
+
+    }
 }
