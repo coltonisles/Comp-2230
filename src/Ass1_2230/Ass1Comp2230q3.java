@@ -1,3 +1,5 @@
+package Ass1_2230;
+
 public class Ass1Comp2230q3 {
     public static void main(String[]args){
         int count = 0;

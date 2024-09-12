@@ -1,3 +1,5 @@
+package Ass1_2230;
+
 import static java.util.Arrays.binarySearch;
 
 public class Ass1_2230 {
