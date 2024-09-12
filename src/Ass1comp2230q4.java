@@ -14,11 +14,11 @@ public class Ass1comp2230q4 {
         double duration = endTime - startTime;
 
         System.out.println("number of prints: " + count);
-        System.out.println("execution time: " + duration/100000 + " milliseconds");
+        System.out.println("execution time: " + duration/1000000 + " milliseconds");
         System.out.println("array size: " + array.length);
     }
 
     private static void someMethod(int i) {
-        System.out.println("print");
+        //System.out.println("print");
     }
 }
