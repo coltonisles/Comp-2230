@@ -2,7 +2,7 @@ import static java.util.Arrays.binarySearch;
 
 public class Ass1_2230 {
     public static void main(String[] args){
-        int size = 35;
+        int size = 40;
         int[] num = new int[size];
         for (int i = 0; i < size; i++) {
                 num[i] = i + 1;
