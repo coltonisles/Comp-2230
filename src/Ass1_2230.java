@@ -2,7 +2,7 @@ import static java.util.Arrays.binarySearch;
 
 public class Ass1_2230 {
     public static void main(String[] args){
-        int size = 50;
+        int size = 35;
         int[] num = new int[size];
         for (int i = 0; i < size; i++) {
                 num[i] = i + 1;
@@ -128,7 +128,7 @@ public class Ass1_2230 {
      * @param n array of N length
      */
     public static void logLin(int [] n){
-        System.out.println("------Order------");
+        System.out.println("------Loglinear------");
         double startTime = System.nanoTime();
         int count = 0;
         for(int i = 0; i < n.length; i++){
