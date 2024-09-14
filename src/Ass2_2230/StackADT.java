@@ -1,6 +1,5 @@
 package Ass2_2230;
 
-;
 
 /**
  * Defines the interface to a stack collection.
