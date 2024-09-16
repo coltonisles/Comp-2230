@@ -13,10 +13,10 @@ import java.util.Arrays;
  */
 public class ArrayStack<T> implements StackADT<T>
 {
-    private final static int DEFAULT_CAPACITY = 100;
+    protected final static int DEFAULT_CAPACITY = 100;
 
-    private int top;
-    private T[] stack;
+    protected int top;
+    protected T[] stack;
 
     /**
      * Creates an empty stack using the default capacity.
@@ -33,7 +33,7 @@ public class ArrayStack<T> implements StackADT<T>
     public ArrayStack(int initialCapacity)
     {
         top = 0;
-        stack = (T[])(new Object[initialCapacity]);
+        stack = (T[])new Object[initialCapacity];
     }
 
     /**
@@ -97,7 +97,7 @@ public class ArrayStack<T> implements StackADT<T>
      */
     public boolean isEmpty()
     {
-        return stack[top-1] == null;
+        return (size() == 0);
     }
 
     /**
