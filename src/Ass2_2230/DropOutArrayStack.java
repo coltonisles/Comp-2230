@@ -51,17 +51,9 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
             //bottom++;
 
             //top--;
+            // removes the null elements in the array but causes an index out of bounds exception after 6 inputs
             //*stack = (T[]) Arrays.stream(stack).filter(Objects::nonNull).toArray(Object[]::new);
         }
 
     }
-
-
-        /* if (top >= n) {
-             top = 0;
-         }
-         super.push(element);
-        stack[top] = element;
-         top = (top + 1) % n;*/
-
 }
