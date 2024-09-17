@@ -22,6 +22,7 @@ public class ArrayStackTester {
             array.pop();
         }
         System.out.println(array.toString());
+        System.out.println(array.isEmpty());
 	}
 }
 
