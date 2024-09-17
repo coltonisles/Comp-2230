@@ -2,7 +2,7 @@ package Ass2_2230;
 
 public class DOASTest {
     public static void main(String[] args){
-        DropOutArrayStack<Integer> doa = new DropOutArrayStack<>(3);
+        DropOutArrayStack<Integer> doa = new DropOutArrayStack<>(4);
         System.out.println(doa.toString());
         doa.push(1);
         doa.push(2);
@@ -20,7 +20,7 @@ public class DOASTest {
             doa.push(i);
         }*/
         System.out.println(doa.toString());
-        System.out.println("Size: " + doa.size());
+        System.out.println("top: " + doa.size());
 
     }
 }

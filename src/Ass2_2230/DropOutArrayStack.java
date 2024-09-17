@@ -10,8 +10,8 @@ import java.util.Objects;
  * @author Kaylee Crocker and Colton Isles
  */
 public class DropOutArrayStack<T> extends ArrayStack<T> {
-    private int upper;
-    private int bottom;
+
+    //private int bottom;
     private int n;
     
     /**
@@ -26,9 +26,9 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
      * @param n the initial size of the array
      */
     public DropOutArrayStack(int n) {
-        super(n+1);
+        super(n);
         this.n = n;
-        this.bottom = 0;
+        //this.bottom = 0;
     }
 
     
@@ -40,15 +40,15 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
     @Override
      public void push(T element) {
 
-        if (top <= n) {
+        if (top < n) {
             super.push(element);
 
         } else {
-            //top = (top + 1) % n;
-            stack[bottom] = null;
-            bottom = (bottom + 1) % n;
+
+            top = (top) % n;
+            //stack[bottom] = null;
+            //bottom = (bottom + 1) % n;
             super.push(element);
-            //bottom++;
 
             //top--;
             // removes the null elements in the array but causes an index out of bounds exception after 6 inputs
