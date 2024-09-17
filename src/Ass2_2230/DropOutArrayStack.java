@@ -1,8 +1,5 @@
 package Ass2_2230;
 
-import java.util.Arrays;
-import java.util.Objects;
-
 /**
  * An ArrayStack in which, if the size is n, when the n+1 element is
  * pushed, the oldest element (bottom of stack) is lost.
@@ -26,7 +23,7 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
      * @param n the initial size of the array
      */
     public DropOutArrayStack(int n) {
-        super(n);
+        super(n + 1);
         this.n = n;
         //this.bottom = 0;
     }
@@ -42,18 +39,16 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
 
         if (top < n) {
             super.push(element);
-
         } else {
-
             top = (top) % n;
-            //stack[bottom] = null;
-            //bottom = (bottom + 1) % n;
             super.push(element);
-
-            //top--;
-            // removes the null elements in the array but causes an index out of bounds exception after 6 inputs
-            //*stack = (T[]) Arrays.stream(stack).filter(Objects::nonNull).toArray(Object[]::new);
         }
-
+    }
+    public T pop() {
+        if (top == 0  && stack[top+2] != null) {
+            top = n;
+            return super.pop();
+        }
+       return super.pop();
     }
 }
