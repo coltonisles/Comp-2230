@@ -9,7 +9,7 @@ package Ass2_2230;
 public class DropOutArrayStack<T> extends ArrayStack<T> {
 
     private int n;  //the max size of the stack
-    private int bottom = 0; //used for calculating size() with O(1) 
+    private int bottom = 0; //used only for calculating size() with O(1) efficency
     
     /**
      * Creates an empty stack using the default capacity.
@@ -81,16 +81,14 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
       */
      @Override
       public int size() {
+        int size = n;
           if (top > bottom) {
-            return top - bottom;
-        } else if (top == 0) {
-            return 0;
-        } else {
-            return n - bottom + top;
+            size = top - bottom;
+        } else if (top < bottom) {
+            size = n - bottom + top;
+        } else if (stack[bottom] == null) {
+            size = 0;
         }
-      }
-      @Override
-      public boolean isEmpty(){
-          return stack[top] == null && stack[bottom] == null;
+        return size;
       }
 }
