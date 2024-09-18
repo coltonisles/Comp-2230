@@ -28,7 +28,7 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
          * elements, however, ArrayStack.push() will expand the array
          * when the size of the stack reaches the length of the array. 
          * This insures that the stack sizes never reaches that so the 
-         * array is not needlesly expanded. The last element of the 
+         * array is not needlessly expanded. The last element of the
          * array will always be unused (null).
          */
         this.n = n;
@@ -53,8 +53,8 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
         }
     }
     
-    /**
-     * Returns and removes the element on the top of the stack.
+    /** removes the element on the top of the stack.
+     * @return the element removed from the top of the stack
      */
     @Override
     public T pop() {
@@ -64,8 +64,8 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
        return super.pop();
     }
     
-    /**
-     * Returns the element on the top of the stack without removing it.
+    /**displays the element at the top of the stack
+     * @return the element on the top of the stack without removing it.
      */
     @Override
      public T peek() {
@@ -75,9 +75,9 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
              return super.peek();
          }
      }
-     
-     /**
-      * Returns the number of elements in this stack.
+
+     /** Displays the number of elements in this stack.
+      * @return difference between top and bottom if top is greater than bottom, 0 if top == bottom, else n-bottom+top
       */
      @Override
       public int size() {
@@ -89,6 +89,10 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
             return n - bottom + top;
         }
       }
+
+    /** Determines if the stack is empty
+     * @return True if the top and bottom index of the stack are both null
+     */
       @Override
       public boolean isEmpty(){
           return stack[top] == null && stack[bottom] == null;
