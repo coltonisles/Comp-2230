@@ -22,5 +22,29 @@ public class DOASTest {
         System.out.println("Size:" + doa.size());
         // Stack: 3, 4, 5, 6, 7
         // Size: 5
+        doa.pop();
+        System.out.println(doa.toString());
+        System.out.println("Size:" + doa.size());
+        doa.pop();
+        System.out.println(doa.toString());
+        System.out.println("Size:" + doa.size());
+        doa.pop();
+        System.out.println(doa.toString());
+        System.out.println("Size:" + doa.size());
+        doa.pop();
+        System.out.println(doa.toString());
+        System.out.println("Size:" + doa.size());
+        doa.pop();
+        System.out.println(doa.toString());
+        System.out.println("Size:" + doa.size());
+        doa.pop();
+        System.out.println(doa.toString());
+        System.out.println("Size:" + doa.size());
+        /*doa.pop();
+        System.out.println(doa.toString());
+        System.out.println("Size:" + doa.size());
+        doa.pop();
+        System.out.println(doa.toString());
+        System.out.println("Size:" + doa.size());*/
     }
 }

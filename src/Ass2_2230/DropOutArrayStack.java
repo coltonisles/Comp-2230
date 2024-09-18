@@ -56,6 +56,7 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
     /**
      * Returns and removes the element on the top of the stack.
      */
+    @Override
     public T pop() {
         if (top == 0) {
             top = n;
@@ -66,6 +67,7 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
     /**
      * Returns the element on the top of the stack without removing it.
      */
+    @Override
      public T peek() {
          if (top == 0) {
              return stack[n - 1];
@@ -77,6 +79,7 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
      /**
       * Returns the number of elements in this stack.
       */
+     @Override
       public int size() {
           if (top > bottom) {
             return top - bottom;
@@ -85,5 +88,9 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
         } else {
             return n - bottom + top;
         }
+      }
+      @Override
+      public boolean isEmpty(){
+          return stack[top] == null && stack[bottom] == null;
       }
 }
