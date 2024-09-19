@@ -106,7 +106,7 @@ public class ArrayStack<T> implements StackADT<T>
      */
     public int size()
     {
-        return top;  // temp
+        return top;
     }
 
     /**
@@ -115,7 +115,7 @@ public class ArrayStack<T> implements StackADT<T>
      */
     public String toString()
     {
-        return Arrays.toString(stack);  // temp
+        return Arrays.toString(stack);
     }
 }
 
