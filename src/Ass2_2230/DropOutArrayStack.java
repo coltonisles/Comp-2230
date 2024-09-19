@@ -75,7 +75,6 @@ public class DropOutArrayStack<T> extends ArrayStack<T> {
              return super.peek();
          }
      }
-
      /** Displays the number of elements in this stack.
       * @return difference between top and bottom if top is greater than bottom, 0 if top == bottom, else n-bottom+top
       */
