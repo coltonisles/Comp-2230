@@ -1,5 +1,7 @@
 package Ass2_2230;
 
+import Ass2_2230.exceptions.EmptyCollectionException;
+
 public class DOASTest {
     public static void main(String[] args){
         DropOutArrayStack<Integer> doa = new DropOutArrayStack<>(5);
@@ -52,7 +54,16 @@ public class DOASTest {
         // Stack: 
         // Size: 0
         // Empty?: true
-        doa.peek();
+        try {
+            doa.peek();
+        } catch(EmptyCollectionException ece){
+            System.out.println("peek() throws empty collection exception correctly");
+        }
+        try {
+            doa.pop();
+        } catch(EmptyCollectionException ece){
+            System.out.println("pop() throws empty collection exception correctly");
+        }
         // throws EmptyCollectionException
     }
 }
