@@ -1,8 +1,6 @@
 package Ass3_2230;
 
-import Ass3_2230.exceptions.*;
-
-import java.util.Arrays;
+//import Ass3_2230.exceptions.*;
 
 /**
  * Represents a linked implementation of a stack.
@@ -13,7 +11,7 @@ import java.util.Arrays;
 public class LinkedStack<T> implements StackADT<T>
 {
 	private int count;  
-	private LinearNode<T> top; 
+	protected LinearNode<T> top; 
 
 	/**
 	 * Creates an empty stack.
@@ -76,9 +74,7 @@ public class LinkedStack<T> implements StackADT<T>
 	 */
 	public boolean isEmpty()
 	{
-		// To be completed as a Programming Project
-		
-		return true;  // temp
+		return count == 0;
 	}
 
 	/**
@@ -87,19 +83,22 @@ public class LinkedStack<T> implements StackADT<T>
 	 */
 	public int size()
 	{
-		// To be completed as a Programming Project
-		
-		return 0;  // temp
+		return count;
 	}
 
 	/**
 	 * Returns a string representation of this stack. 
 	 * @return string representation of the stack
 	 */
-	public String toString()
-	{
-		// To be completed as a Programming Project
+	public String toString() //???
+	{   
+        String result = "";
+        LinearNode current = top;
+		for (int i = 1; i <= count; i++) {
+            result += current.getElement();
+            current = current.getNext();
+        }
 		
-		return Arrays.toString();  // temp
+		return result;
 	}
 }
