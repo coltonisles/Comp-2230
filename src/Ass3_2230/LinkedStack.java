@@ -1,6 +1,6 @@
 package Ass3_2230;
 
-//import Ass3_2230.exceptions.*;
+import Ass3_2230.exceptions.*;
 
 /**
  * Represents a linked implementation of a stack.
@@ -10,7 +10,7 @@ package Ass3_2230;
  */
 public class LinkedStack<T> implements StackADT<T>
 {
-	private int count;  
+	protected int count;  
 	protected LinearNode<T> top; 
 
 	/**

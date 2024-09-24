@@ -3,11 +3,10 @@ package Ass3_2230;
 public class LinkedDropOutStack<T> extends LinkedStack<T> {
     
     private int n;
-    private final int DEFAULT_N = 100;
+    private static final int DEFAULT_N = 100;
     
     LinkedDropOutStack() {
-        super();
-        this.n = DEFAULT_N;
+        this(DEFAULT_N);
     }
     
     LinkedDropOutStack(int n) {
@@ -26,8 +25,10 @@ public class LinkedDropOutStack<T> extends LinkedStack<T> {
     private void deleteBottomElement() {
         
         LinearNode newBottomNode = top;
-		for (int i = 1; i <= size(); i++) {
+		for (int i = 1; i < size()-1; i++) {
             newBottomNode = newBottomNode.getNext();
         }
+        newBottomNode.setNext(null);
+        count--;
     }
 }
