@@ -24,7 +24,7 @@ public class LinkedDropOutStack<T> extends LinkedStack<T> {
     
     private void deleteBottomElement() {
         
-        LinearNode newBottomNode = top;
+        LinearNode<T> newBottomNode = top;
 		for (int i = 1; i < size()-1; i++) {
             newBottomNode = newBottomNode.getNext();
         }
