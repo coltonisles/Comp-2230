@@ -96,7 +96,7 @@ public class LinkedStack<T> implements StackADT<T>
         String result = "";
         LinearNode<T> current = top;
 		for (int i = 1; i <= count; i++) {
-            result += current.getElement() + ", ";
+            result += current.getElement() + ",";
             current = current.getNext();
         }
 		

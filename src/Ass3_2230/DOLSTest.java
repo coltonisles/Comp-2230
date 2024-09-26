@@ -4,7 +4,7 @@ import Ass2_2230.ArrayStack;
 import Ass2_2230.DropOutArrayStack;
 import Ass2_2230.exceptions.EmptyCollectionException;
 
-public class LDOATest {
+public class DOLSTest {
     public static void main(String[] args){
 
         LinkedDropOutStack<Integer> dols = new LinkedDropOutStack<>(5);
