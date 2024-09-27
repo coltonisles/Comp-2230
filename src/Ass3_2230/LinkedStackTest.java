@@ -14,6 +14,7 @@ public class LinkedStackTest {
         }
         System.out.println("Filled Stack: " + "Top -> " + linkStack.toString() + " <- Bottom");
 
+        //test pop and peek
         System.out.println("-----pop() & peek() Test-----");
         System.out.println("Peek Top Value: " + linkStack.peek());
         for (int i = 1; i < 5; i++) {
