@@ -91,7 +91,7 @@ public class LinkedStack<T> implements StackADT<T>
 	 * @return string representation of the stack
 	 */
 	@Override
-	public String toString() //???
+	public String toString()
 	{   
         String result = "";
         LinearNode<T> current = top;

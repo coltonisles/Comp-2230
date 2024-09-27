@@ -19,7 +19,33 @@ public class DOLSTest {
         dols.push(6);
         dols.push(7);
         System.out.println("Full stack after dropout occurs : " + "Top -> " + dols.toString() + " <- Bottom");
+        
+        //test pop and peek
+        System.out.println("-----pop() & peek() Test-----");
+        System.out.println("Peek Top Value: " + dols.peek());
+        for (int i = 1; i < 5; i++) {
+            dols.pop();
+        }
+        System.out.println("Stack after pop test: " + "Top -> " + dols.toString() + " <- Bottom");
+        System.out.println("Top Value after pop test: " + dols.peek());
+        dols.pop();
 
+        //test peek with empty method
+        System.out.println("-----peek() with empty stack test-----");
+        try{
+            dols.peek();
+        } catch (EmptyCollectionException e) {
+            System.out.println("peek() throws empty collection exception correctly");
+        }
 
+        //test pop with empty stack
+        System.out.println("-----pop() with empty stack test-----");
+        try {
+            dols.pop();
+        } catch (EmptyCollectionException e) {
+            System.out.println("pop() throws empty collection exception correctly");
+        }
+        System.out.println("Is the stack empty: " + dols.isEmpty());
+        System.out.println("stack size: " + dols.size());
     }
 }
