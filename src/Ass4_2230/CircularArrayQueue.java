@@ -2,6 +2,8 @@ package Ass4_2230;
 
 import Ass4_2230.exceptions.*;
 
+import java.util.Arrays;
+
 
 /**
  * CircularArrayQueue represents an array implementation of a queue in 
@@ -100,7 +102,7 @@ public class CircularArrayQueue<T> implements QueueADT<T>
 	{
 		// To be completed as a Programming Project
 		
-		return null;  // temp
+		return queue[front];  // temp
 	}
 
 	/**
@@ -111,7 +113,7 @@ public class CircularArrayQueue<T> implements QueueADT<T>
 	{
 		// To be completed as a Programming Project
 		
-		return true;  // temp
+		return count == 0;  // temp
 	}
 
 	/**
@@ -122,7 +124,7 @@ public class CircularArrayQueue<T> implements QueueADT<T>
 	{
 		// To be completed as a Programming Project
 		
-		return 0;  // temp
+		return count;  // temp
 	}
 
 	/**
@@ -133,6 +135,6 @@ public class CircularArrayQueue<T> implements QueueADT<T>
 	{
 		// To be completed as a Programming Project
 		
-		return "";  // temp
+		return Arrays.toString(queue);
 	}
 }
