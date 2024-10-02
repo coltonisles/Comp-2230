@@ -2,8 +2,6 @@ package Ass4_2230;
 
 import Ass2_2230.exceptions.EmptyCollectionException;
 
-import java.util.Arrays;
-
 public class ArrQTest {
     public static void main(String[] args) {
         CircularArrayQueue<Integer> arrq = new CircularArrayQueue<>(5);
