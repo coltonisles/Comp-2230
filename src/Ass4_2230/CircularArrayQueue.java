@@ -102,7 +102,7 @@ public class CircularArrayQueue<T> implements QueueADT<T>
 	{
 		// To be completed as a Programming Project
 		
-		return queue[front];  // temp
+		return queue[front];
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class CircularArrayQueue<T> implements QueueADT<T>
 	{
 		// To be completed as a Programming Project
 		
-		return count == 0;  // temp
+		return count == 0;
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class CircularArrayQueue<T> implements QueueADT<T>
 	{
 		// To be completed as a Programming Project
 		
-		return count;  // temp
+		return count;
 	}
 
 	/**

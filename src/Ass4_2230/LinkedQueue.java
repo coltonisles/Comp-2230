@@ -71,7 +71,7 @@ public class LinkedQueue<T> implements QueueADT<T>
 		if(isEmpty()){
 			throw new EmptyCollectionException("queue");
 		}
-		return head.getElement();  // temp
+		return head.getElement();
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class LinkedQueue<T> implements QueueADT<T>
 	{
 		// To be completed as a Programming Project
 		
-		return count == 0;  // temp
+		return count == 0;
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class LinkedQueue<T> implements QueueADT<T>
 	{
 		// To be completed as a Programming Project
 		
-		return count;  // temp
+		return count;
 	}
 
 	/**
