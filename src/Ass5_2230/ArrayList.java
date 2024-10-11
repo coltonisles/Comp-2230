@@ -1,6 +1,6 @@
-package jsjf;
+package Ass5_2230;
 
-import jsjf.exceptions.*;
+import Ass5_2230.exceptions.*;
 import java.util.*;
 
 /**
@@ -47,7 +47,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 */
 	protected void expandCapacity()
 	{
-		// To be completed as a Programming Project
+		list = Arrays.copyOf(list, 2 * list.length);
 	}
 
 	/**
@@ -58,9 +58,13 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 */
 	public T removeLast() throws EmptyCollectionException
 	{
-		// To be completed as a Programming Project
-		
-		return null;  // temp
+		if (isEmpty()) throw new EmptyCollectionException("ArrayList");
+
+		rear--;
+		modCount--;
+		T result = list[rear];
+		list[rear] = null;
+		return result;
 	}
 
 	/**
@@ -71,10 +75,14 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 */
 	public T removeFirst() throws EmptyCollectionException
 	{
-		// To be completed as a Programming Project
+		if (isEmpty()) throw new EmptyCollectionException("ArrayList");
+
+		T result = list[0];
+		modCount--;
+		rear--;
+		list = Arrays.copyOfRange(list, 1, list.length);
 		
-		return null;  // temp
-	}
+		return result;
 
 	/**
 	 * Removes and returns the specified element.
@@ -114,9 +122,9 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 */
 	public T first() throws EmptyCollectionException
 	{
-		// To be completed as a Programming Project
+		if (isEmpty()) throw new EmptyCollectionException("ArrayList");
 		
-		return null;  // temp
+		return list[0];
 	}
 
 	/**
@@ -129,9 +137,9 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 */
 	public T last() throws EmptyCollectionException
 	{
-		// To be completed as a Programming Project
+		if (isEmpty()) throw new EmptyCollectionException("ArrayList");
 		
-		return null;  // temp
+		return list[rear - 1];
 	}
 
 	/**
@@ -175,9 +183,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 */
 	public boolean isEmpty()
 	{
-		// To be completed as a Programming Project
-		
-		return true;  // temp
+		return modCount == 0;
 	}
 
 	/**
@@ -187,9 +193,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 */
 	public int size()
 	{
-		// To be completed as a Programming Project
-		
-		return 0;  // temp
+		return modCount;
 	}
 
 	/**
@@ -199,9 +203,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 */
 	public String toString()
 	{
-		// To be completed as a Programming Project
-		
-		return "";  // temp
+		return Arrays.toString(list);
 	}
 
 	/**

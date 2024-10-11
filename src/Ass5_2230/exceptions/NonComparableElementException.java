@@ -1,4 +1,4 @@
-package jsjf.exceptions;
+package Ass5_2230.exceptions;
 
 /**
  * NonComparableElementException  represents the situation in which an attempt 

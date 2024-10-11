@@ -1,6 +1,6 @@
-package jsjf;
+package Ass5_2230;
 
-import jsjf.exceptions.*;
+import Ass5_2230.exceptions.*;
 
 /**
  * ArrayUnorderedList represents an array implementation of an unordered list.

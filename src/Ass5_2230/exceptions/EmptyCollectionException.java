@@ -1,4 +1,4 @@
-package jsjf.exceptions;
+package Ass5_2230.exceptions;
 
 /**
  * Represents the situation in which a collection is empty.
