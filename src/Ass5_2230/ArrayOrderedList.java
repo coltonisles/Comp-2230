@@ -60,4 +60,23 @@ implements OrderedListADT<T>
 		rear++;
 		modCount++;
 	}
+
+	private int find(T target){
+		int index = 0;
+
+		if (!(target instanceof Comparable))
+			throw new NonComparableElementException("OrderedList");
+
+		Comparable<T> comparableElement = (Comparable<T>)target;
+
+		if(!isEmpty()){
+		while (index < rear && comparableElement.compareTo(list[index]) <= 0) {
+			if (comparableElement.compareTo(list[index]) == 0) {
+				return index;
+			}
+			index++;
+		}
+		}
+		return -1;
+    }
 }

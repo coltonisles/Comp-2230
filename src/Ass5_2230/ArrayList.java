@@ -17,7 +17,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	private final static int NOT_FOUND = -1;
 
 	protected int rear;
-	protected T[] list; 
+	protected T[] list;
 	protected int modCount;
 
 	/**
@@ -73,22 +73,22 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 * @return the first element in the list
 	 * @throws EmptyCollectionException if the element is not in the list
 	 */
-	public T removeFirst() throws EmptyCollectionException
-	{
+	public T removeFirst() throws EmptyCollectionException {
 		if (isEmpty()) throw new EmptyCollectionException("ArrayList");
 
 		T result = list[0];
+		//changes the structure of the list thus modCount--??
 		modCount--;
 		rear--;
 		list = Arrays.copyOfRange(list, 1, list.length);
-		
-		return result;
 
+		return result;
+	}
 	/**
 	 * Removes and returns the specified element.
 	 *
 	 * @param  element the element to be removed and returned from the list
-	 * @return the removed elememt
+	 * @return the removed element
 	 * @throws ElementNotFoundException if the element is not in the list
 	 */
 	public T remove(T element)
@@ -102,11 +102,12 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 		result = list[index];
 		rear--;
 
-		// shift the appropriate elements 
+		// shift the appropriate elements
 		for (int scan = index; scan < rear; scan++)
 			list[scan] = list[scan+1];
 
 		list[rear] = null;
+		//changes the content of the list thus modCount++??
 		modCount++;
 
 		return result;
@@ -115,7 +116,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	/**
 	 * Returns a reference to the element at the front of this list.
 	 * The element is not removed from the list.  Throws an
-	 * EmptyCollectionException if the list is empty.  
+	 * EmptyCollectionException if the list is empty.
 	 *
 	 * @return a reference to the first element in the list
 	 * @throws EmptyCollectionException if the list is empty
@@ -123,14 +124,14 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	public T first() throws EmptyCollectionException
 	{
 		if (isEmpty()) throw new EmptyCollectionException("ArrayList");
-		
+
 		return list[0];
 	}
 
 	/**
 	 * Returns a reference to the element at the rear of this list.
 	 * The element is not removed from the list. Throws an
-	 * EmptyCollectionException if the list is empty.  
+	 * EmptyCollectionException if the list is empty.
 	 *
 	 * @return a reference to the last element of this list
 	 * @throws EmptyCollectionException if the list is empty
@@ -138,7 +139,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	public T last() throws EmptyCollectionException
 	{
 		if (isEmpty()) throw new EmptyCollectionException("ArrayList");
-		
+
 		return list[rear - 1];
 	}
 
@@ -146,7 +147,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 * Returns true if this list contains the specified element.
 	 *
 	 * @param target the target element
-	 * @return true if the target is in the list, false otherwise 
+	 * @return true if the target is in the list, false otherwise
 	 */
 	public boolean contains(T target)
 	{
@@ -158,12 +159,12 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 * constant NOT_FOUND if it is not found.
 	 *
 	 * @param target the target element
-	 * @return the index of the target element, or the 
+	 * @return the index of the target element, or the
 	 *         NOT_FOUND constant
 	 */
 	private int find(T target)
 	{
-		int scan = 0; 
+		int scan = 0;
 		int result = NOT_FOUND;
 
 		if (!isEmpty())
@@ -177,7 +178,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	}
 
 	/**
-	 * Returns true if this list is empty and false otherwise. 
+	 * Returns true if this list is empty and false otherwise.
 	 *
 	 * @return true if the list is empty, false otherwise
 	 */
@@ -197,8 +198,8 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	}
 
 	/**
-	 * Returns a string representation of this list. 
-	 * 
+	 * Returns a string representation of this list.
+	 *
 	 * @return the string representation of the list
 	 */
 	public String toString()
@@ -208,7 +209,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 
 	/**
 	 * Returns an iterator for the elements currently in this list.
-	 * 
+	 *
 	 * @return an iterator for the elements in the list
 	 */
 	public Iterator<T> iterator()
@@ -218,19 +219,17 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 
 	/**
 	 * ArrayListIterator iterator over the elements of an ArrayList.
-	 */	
-	private class ArrayListIterator implements Iterator<T>
-	{
+	 */
+	private class ArrayListIterator implements Iterator<T> {
 		int iteratorModCount;
 		int current;
 
 		/**
 		 * Sets up this iterator using the specified modCount.
-		 * 
+		 *
 		 * @param modCount the current modification count for the ArrayList
 		 */
-		public ArrayListIterator()
-		{
+		public ArrayListIterator() {
 			iteratorModCount = modCount;
 			current = 0;
 		}
@@ -239,13 +238,12 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 		 * Returns true if this iterator has at least one more element
 		 * to deliver in the iteration.
 		 *
-		 * @return  true if this iterator has at least one more element to deliver
-		 *          in the iteration
-		 * @throws  ConcurrentModificationException if the collection has changed
-		 *          while the iterator is in use
+		 * @return true if this iterator has at least one more element to deliver
+		 * in the iteration
+		 * @throws ConcurrentModificationException if the collection has changed
+		 *                                         while the iterator is in use
 		 */
-		public boolean hasNext() throws ConcurrentModificationException
-		{
+		public boolean hasNext() throws ConcurrentModificationException {
 			if (iteratorModCount != modCount)
 				throw new ConcurrentModificationException();
 
@@ -257,12 +255,11 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 		 * more elements in this iteration, a NoSuchElementException is
 		 * thrown.
 		 *
-		 * @return  the next element in the iteration
-		 * @throws  NoSuchElementException if an element not found exception occurs
-		 * @throws  ConcurrentModificationException if the collection has changed
+		 * @return the next element in the iteration
+		 * @throws NoSuchElementException          if an element not found exception occurs
+		 * @throws ConcurrentModificationException if the collection has changed
 		 */
-		public T next() throws ConcurrentModificationException
-		{
+		public T next() throws ConcurrentModificationException {
 			if (!hasNext())
 				throw new NoSuchElementException();
 
@@ -273,13 +270,11 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 
 		/**
 		 * The remove operation is not supported in this collection.
-		 * 
+		 *
 		 * @throws UnsupportedOperationException if the remove method is called
 		 */
-		public void remove() throws UnsupportedOperationException
-		{
+		public void remove() throws UnsupportedOperationException {
 			throw new UnsupportedOperationException();
 		}
-
-	}	
+	}
 }

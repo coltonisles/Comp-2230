@@ -2,14 +2,15 @@ package Ass5_2230;
 
 import Ass5_2230.exceptions.*;
 
+import java.util.Iterator;
+
 /**
  * ArrayUnorderedList represents an array implementation of an unordered list.
  *
  * @author Java Foundations
  * @version 4.0
  */
-public class ArrayUnorderedList<T> extends ArrayList<T> 
-implements UnorderedListADT<T>
+public class ArrayUnorderedList<T> extends ArrayList<T> implements UnorderedListADT<T>
 {
 	/**
 	 * Creates an empty list using the default capacity.
@@ -36,7 +37,12 @@ implements UnorderedListADT<T>
 	 */
 	public void addToFront(T element)
 	{
-		// To be completed as a Programming Project
+		for(int i = rear; i > 0; i--){
+			list[i] = list[i - 1];
+		}
+		list[0] = element;
+		rear++;
+		modCount++;
 	}
 
 	/**
@@ -46,7 +52,9 @@ implements UnorderedListADT<T>
 	 */
 	public void addToRear(T element)
 	{
-		// To be completed as a Programming Project
+		list[rear] = element;
+		rear++;
+		modCount++;
 	}
 
 	/**
@@ -81,4 +89,5 @@ implements UnorderedListADT<T>
 		rear++;
 		modCount++;
 	}
+
 }
