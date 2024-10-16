@@ -204,7 +204,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 */
 	public String toString()
 	{
-		return Arrays.toString(list);
+		return "Front -> " + Arrays.toString(list) + " <- Rear";
 	}
 
 	/**

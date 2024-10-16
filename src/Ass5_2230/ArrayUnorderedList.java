@@ -37,6 +37,9 @@ public class ArrayUnorderedList<T> extends ArrayList<T> implements UnorderedList
 	 */
 	public void addToFront(T element)
 	{
+		if(size() == list.length){
+			expandCapacity();
+		}
 		for(int i = rear; i > 0; i--){
 			list[i] = list[i - 1];
 		}
@@ -52,6 +55,9 @@ public class ArrayUnorderedList<T> extends ArrayList<T> implements UnorderedList
 	 */
 	public void addToRear(T element)
 	{
+		if(size() == list.length){
+			expandCapacity();
+		}
 		list[rear] = element;
 		rear++;
 		modCount++;
@@ -64,7 +70,7 @@ public class ArrayUnorderedList<T> extends ArrayList<T> implements UnorderedList
 	 * @param element the element to be added after the target element
 	 * @param target  the target that the element is to be added after
 	 */
-	public void addAfter(T element, T target)
+	public void addAfter(T element, T target) throws ElementNotFoundException
 	{
 		if (size() == list.length)
 			expandCapacity();
