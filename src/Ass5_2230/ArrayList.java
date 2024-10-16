@@ -61,7 +61,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 		if (isEmpty()) throw new EmptyCollectionException("ArrayList");
 
 		rear--;
-		modCount--;
+		modCount++;
 		T result = list[rear];
 		list[rear] = null;
 		return result;
@@ -78,7 +78,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 
 		T result = list[0];
 		//changes the structure of the list thus modCount--??
-		modCount--;
+		modCount++;
 		rear--;
 		list = Arrays.copyOfRange(list, 1, list.length);
 
@@ -184,7 +184,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 */
 	public boolean isEmpty()
 	{
-		return modCount == 0;
+		return size() == 0;
 	}
 
 	/**
@@ -194,7 +194,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 	 */
 	public int size()
 	{
-		return modCount;
+		return rear;
 	}
 
 	/**

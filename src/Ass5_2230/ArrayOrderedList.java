@@ -61,17 +61,17 @@ implements OrderedListADT<T>
 		modCount++;
 	}
 
-	private int find(T target){
+	private <T extends Comparable<T>> int find(T target){
 		int index = 0;
 
-		if (!(target instanceof Comparable))
+		if (target == null)
 			throw new NonComparableElementException("OrderedList");
 
-		Comparable<T> comparableElement = (Comparable<T>)target;
+		//Comparable<T> comparableElement = (Comparable<T>)target;
 
 		if(!isEmpty()){
-		while (index < rear && comparableElement.compareTo(list[index]) <= 0) {
-			if (comparableElement.compareTo(list[index]) == 0) {
+		while (index < rear && target.compareTo((T) list[index]) <= 0) {
+			if (target.compareTo((T) list[index]) == 0) {
 				return index;
 			}
 			index++;
