@@ -67,15 +67,13 @@ implements OrderedListADT<T>
 		if (target == null)
 			throw new NonComparableElementException("OrderedList");
 
-		//Comparable<T> comparableElement = (Comparable<T>)target;
-
 		if(!isEmpty()){
 		while (index < rear && target.compareTo((T) list[index]) <= 0) {
 			if (target.compareTo((T) list[index]) == 0) {
 				return index;
 			}
 			index++;
-		}
+			}
 		}
 		return -1;
     }
