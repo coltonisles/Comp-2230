@@ -77,14 +77,10 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 		if (isEmpty()) throw new EmptyCollectionException("ArrayList");
 
 		T result = list[0];
-		rear--;
-        
-        // shift elements down
-		for (int scan = 0; scan < rear; scan++)
-			list[scan] = list[scan+1];
-
-        list[rear] = null;
+		//changes the structure of the list thus modCount--??
 		modCount++;
+		rear--;
+		list = Arrays.copyOfRange(list, 1, list.length);
 
 		return result;
 	}
@@ -111,6 +107,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 			list[scan] = list[scan+1];
 
 		list[rear] = null;
+		//changes the content of the list thus modCount++??
 		modCount++;
 
 		return result;
