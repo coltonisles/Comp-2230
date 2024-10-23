@@ -9,9 +9,23 @@ public class OrderedLinkedListTest {
         System.out.println("--------------------------");
 
         System.out.println(list.toString());
+        list.add(2);
+        System.out.println(list.toString());
+        list.add(9);
+        System.out.println(list.toString());
         list.add(1);
         System.out.println(list.toString());
-        list.add(2);
+        list.add(6);
+        System.out.println(list.toString());
+        list.add(8);
+        System.out.println(list.toString());
+        list.add(4);
+        System.out.println(list.toString());
+        list.add(3);
+        System.out.println(list.toString());
+        list.add(5);
+        System.out.println(list.toString());
+        list.delete(10);
         System.out.println(list.toString());
 
     }

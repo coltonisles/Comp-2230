@@ -1,5 +1,7 @@
 package Ass6_2230;
 
+import Ass2_2230.exceptions.EmptyCollectionException;
+
 public class OrderedLinkedList<T extends Comparable<T>> {
     private int count;
     private LinearNode<T> head, tail;
@@ -11,29 +13,62 @@ public class OrderedLinkedList<T extends Comparable<T>> {
     }
     public void add(T element){
         LinearNode<T> node = new LinearNode<T>(element);
-        if(count == 0){
+        if(head == null){
             head = tail = node;
-        } else if(count == 1){
-            tail.setNext(node);
-            tail = node;
-        } else if(element.compareTo(head.getNext().getElement()) <= 0){
+            count++;
+            return;
+        }
+
+        if(element.compareTo(head.getElement()) <= 0){
             node.setNext(head);
             head = node;
-        } else if(element.compareTo(tail.getElement()) >= 0){
-            tail.setNext(node);
-            tail = node;
-        } else {
-            LinearNode<T> current = head;
-            while(current.getNext() != null && element.compareTo(current.getNext().getElement()) > 0){
-                current = current.getNext();
-            }
-            node.setNext(current.getNext());
-            current.setNext(node);
+            count++;
+            return;
         }
+
+        LinearNode<T> current = head;
+        while(current.getNext() != null && element.compareTo(current.getNext().getElement()) > 0){
+            current = current.getNext();
+        }
+
+        node.setNext(current.getNext());
+        current.setNext(node);
+
+        if(current == tail){
+            tail = node;
+        }
+
         count++;
 
     }
-    public void delete(T element){
+    public void delete(T element) throws EmptyCollectionException {
+         LinearNode<T> current = head;
+         LinearNode<T> previous = head;
+
+         if(head == null){
+             throw new EmptyCollectionException("LinkedList");
+         }
+         if(head.getElement().equals(element)){
+             head = head.getNext();
+             if(head == null){
+                 tail = null;
+             }
+             count--;
+             return;
+         }
+
+         while(current != null && !current.getElement().equals(element)){
+             previous = current;
+             current = current.getNext();
+         }
+         if(current != null){
+            previous.setNext(current.getNext());
+
+            if(current == tail){
+                tail = previous;
+            }
+            count--;
+         }
 
     }
 
