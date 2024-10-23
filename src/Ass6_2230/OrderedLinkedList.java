@@ -1,6 +1,7 @@
 package Ass6_2230;
 
 import Ass2_2230.exceptions.EmptyCollectionException;
+import Ass5_2230.exceptions.ElementNotFoundException;
 
 public class OrderedLinkedList<T extends Comparable<T>> {
     private int count;
@@ -41,7 +42,7 @@ public class OrderedLinkedList<T extends Comparable<T>> {
         count++;
 
     }
-    public void delete(T element) throws EmptyCollectionException {
+    public void delete(T element) throws EmptyCollectionException, ElementNotFoundException {
          LinearNode<T> current = head;
          LinearNode<T> previous = head;
 
@@ -68,6 +69,8 @@ public class OrderedLinkedList<T extends Comparable<T>> {
                 tail = previous;
             }
             count--;
+         }else{
+             throw new ElementNotFoundException("Arraylist");
          }
 
     }

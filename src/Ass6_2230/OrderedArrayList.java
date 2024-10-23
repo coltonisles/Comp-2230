@@ -1,5 +1,6 @@
 package Ass6_2230;
 
+import Ass2_2230.exceptions.EmptyCollectionException;
 import Ass6_2230.Exceptions.ElementNotFoundException;
 
 import java.util.Arrays;
@@ -65,7 +66,7 @@ public class OrderedArrayList<T extends Comparable<T>> { // IDK if this works to
      * Deletes the element if it is in the list.
      * @param element element to delete
      */
-    public void delete(T element) throws NoSuchElementException{
+    public void delete(T element) throws ElementNotFoundException{
 
         int index = find(element);
         if(index == NOT_FOUND){
@@ -82,10 +83,12 @@ public class OrderedArrayList<T extends Comparable<T>> { // IDK if this works to
      * @param target element to search for
      * @return result of the search
      */
-    private int find(T target) {
+    private int find(T target) throws EmptyCollectionException{
         int index = 0;
         int result = NOT_FOUND;
-
+        if(list.length == 0){
+            throw new EmptyCollectionException("list");
+        }
         while (result == NOT_FOUND && index < rear) {
             if (target.equals(list[index])) {
                 result = index;
