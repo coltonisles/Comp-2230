@@ -26,6 +26,13 @@ public class OrderedArrayListTest {
         list.add(3);
         System.out.println(list.toString());
         list.add(5);
+        System.out.println(list.toString());
+        list.add(7);
+        System.out.println(list.toString());
+        list.add(0);
+        System.out.println(list.toString());
+        /*list.add(10);
+        System.out.println(list.toString());*/
 
         System.out.println("Testing delete method:");
         System.out.println("--------------------------");

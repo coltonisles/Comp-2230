@@ -2,6 +2,7 @@ package Ass6_2230;
 
 import Ass6_2230.Exceptions.*;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.*;
 
@@ -22,8 +23,8 @@ public class OrderedArrayList<T extends Comparable<T>> {
      * Constructs the OrderedListArray with the maximum capacity
      * of 10.
      */
-    OrderedArrayList() {
-            this(MAX_CAPACITY);
+     public OrderedArrayList() {
+         this(MAX_CAPACITY);
         }
 
     /**
@@ -34,9 +35,9 @@ public class OrderedArrayList<T extends Comparable<T>> {
      */
     OrderedArrayList(int capacity) {
             if (capacity >= MAX_CAPACITY) {
-                list = (T[])(new Object[MAX_CAPACITY]);
+                list = (T[]) Array.newInstance(Comparable.class, MAX_CAPACITY);
             } else {
-                list = (T[])(new Object[capacity]);
+                list = (T[]) Array.newInstance(Comparable.class, capacity);
             }
             rear = 0;
         }
@@ -48,10 +49,10 @@ public class OrderedArrayList<T extends Comparable<T>> {
     public void add(T element) {
 
             int index = 0;
-            if(list.length == 10){
+            if(rear == MAX_CAPACITY){
                 throw new FullCapacityException("list");
             }
-            while (element.compareTo(list[index]) < 0 && index < rear) {
+            while (index < rear && element.compareTo(list[index]) < 0) {
                 index++;
             }
 
@@ -75,8 +76,8 @@ public class OrderedArrayList<T extends Comparable<T>> {
         }
         list[index] = null;
 
-        for (int i = rear; i > index; i--) {
-            list[i] = list[i - 1];
+        for (int i = index; i < rear - 1; i++) {
+            list[i] = list[i + 1];
         }
     }
 
