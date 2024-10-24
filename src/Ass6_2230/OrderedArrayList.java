@@ -1,7 +1,6 @@
 package Ass6_2230;
 
-import Ass2_2230.exceptions.EmptyCollectionException;
-import Ass6_2230.Exceptions.ElementNotFoundException;
+import Ass6_2230.Exceptions.*;
 
 import java.util.Arrays;
 import java.util.*;
@@ -44,12 +43,14 @@ public class OrderedArrayList<T extends Comparable<T>> { // IDK if this works to
 
     /**
      * Adds the element to it's place in the list.
-     *
      * @param element element to be added
      */
     public void add(T element) {
 
             int index = 0;
+            if(list.length == 10){
+                throw new FullCapacityException("list");
+            }
             while (element.compareTo(list[index]) < 0 && index < rear) {
                 index++;
             }
