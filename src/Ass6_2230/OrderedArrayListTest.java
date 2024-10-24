@@ -1,11 +1,11 @@
 package Ass6_2230;
 
-import Ass5_2230.exceptions.ElementNotFoundException;
+import Ass5_2230.exceptions.*;
 
-public class OrderedLinkedListTest {
+public class OrderedArrayListTest {
     public static void main(String[] args) {
         // Create new list
-        OrderedLinkedList<Integer> list = new OrderedLinkedList<Integer>();
+        OrderedArrayList<Integer> list = new OrderedArrayList<Integer>();
 
         System.out.println("Testing sorted add method:");
         System.out.println("--------------------------");
@@ -45,6 +45,4 @@ public class OrderedLinkedListTest {
         }
 
     }
-
 }
-

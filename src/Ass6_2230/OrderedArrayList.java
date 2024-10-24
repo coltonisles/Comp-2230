@@ -10,7 +10,7 @@ import java.util.*;
  *
  * @author Colton Isles, Kaylee Crocker
  */
-public class OrderedArrayList<T extends Comparable<T>> { // IDK if this works to make sure T is comparable
+public class OrderedArrayList<T extends Comparable<T>> {
 
     private static final int MAX_CAPACITY = 10;
     private final static int NOT_FOUND = -1;
@@ -33,7 +33,7 @@ public class OrderedArrayList<T extends Comparable<T>> { // IDK if this works to
      * @param capacity Capacity of the arrayList with maximum of 10
      */
     OrderedArrayList(int capacity) {
-            if (capacity > MAX_CAPACITY) {
+            if (capacity >= MAX_CAPACITY) {
                 list = (T[])(new Object[MAX_CAPACITY]);
             } else {
                 list = (T[])(new Object[capacity]);

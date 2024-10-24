@@ -5,17 +5,18 @@ import Ass5_2230.exceptions.ElementNotFoundException;
 
 public class OrderedLinkedList<T extends Comparable<T>> {
     private int count;
-    private LinearNode<T> head, tail;
+    private LinearNode<T> head;
 
     public OrderedLinkedList(){
         count = 0;
-        head = tail = null;
+        head = null;
 
     }
+
     public void add(T element){
         LinearNode<T> node = new LinearNode<T>(element);
         if(head == null){
-            head = tail = node;
+            head = node;
             count++;
             return;
         }
@@ -35,43 +36,32 @@ public class OrderedLinkedList<T extends Comparable<T>> {
         node.setNext(current.getNext());
         current.setNext(node);
 
-        if(current == tail){
-            tail = node;
-        }
-
         count++;
 
     }
+
     public void delete(T element) throws EmptyCollectionException, ElementNotFoundException {
          LinearNode<T> current = head;
-         LinearNode<T> previous = head;
 
          if(head == null){
              throw new EmptyCollectionException("LinkedList");
          }
          if(head.getElement().equals(element)){
              head = head.getNext();
-             if(head == null){
-                 tail = null;
-             }
              count--;
              return;
          }
 
-         while(current != null && !current.getElement().equals(element)){
-             previous = current;
-             current = current.getNext();
-         }
-         if(current != null){
-            previous.setNext(current.getNext());
-
-            if(current == tail){
-                tail = previous;
+        for (int i = 0; i < count; i++) {
+            if (current.getNext() == null || current.getNext().getElement().compareTo(element) > 0) {
+                throw new ElementNotFoundException("Arraylist");
+            } else if (current.getNext().getElement() == element) {
+                current.setNext(current.getNext().getNext());
+                count--;
+                return;
             }
-            count--;
-         }else{
-             throw new ElementNotFoundException("Arraylist");
-         }
+            current = current.getNext();
+        }
 
     }
 
