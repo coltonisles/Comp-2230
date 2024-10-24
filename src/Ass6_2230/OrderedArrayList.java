@@ -52,7 +52,7 @@ public class OrderedArrayList<T extends Comparable<T>> {
             if(rear == MAX_CAPACITY){
                 throw new FullCapacityException("list");
             }
-            while (index < rear && element.compareTo(list[index]) < 0) {
+            while (index < rear && element.compareTo(list[index]) > 0) {
                 index++;
             }
 
@@ -68,39 +68,42 @@ public class OrderedArrayList<T extends Comparable<T>> {
      * Deletes the element if it is in the list.
      * @param element element to delete
      */
-    public void delete(T element) throws ElementNotFoundException{
+    public void delete(T element) {
 
         int index = find(element);
-        if(index == NOT_FOUND){
-            throw new ElementNotFoundException("list");
-        }
         list[index] = null;
 
         for (int i = index; i < rear - 1; i++) {
             list[i] = list[i + 1];
         }
+        rear--;
+        list[rear] = null;
     }
 
     /**
+     * Finds the index of the target in the list.
      * @param target element to search for
      * @return result of the search
      */
-    private int find(T target) throws EmptyCollectionException{
-        int index = 0;
+    private int find(T target) throws ElementNotFoundException {
+
         int result = NOT_FOUND;
-        if(list.length == 0){
-            throw new EmptyCollectionException("list");
-        }
-        while (result == NOT_FOUND && index < rear) {
-            if (target.equals(list[index])) {
+
+        for (int index = 0; index < rear; index++) {
+            if (list[index].equals(target)) {
                 result = index;
-            } else {
-                index++;
+                break;
+            } else if (index == rear - 1 || list[index].compareTo(target) > 0) {
+                throw new ElementNotFoundException("list");
             }
         }
-
         return result;
     }
+
+    /**
+     * Returns a string of items in the list.
+     * @return string of list items
+     */
     @Override
     public String toString() {
         return Arrays.toString(list);

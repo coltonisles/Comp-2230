@@ -1,6 +1,6 @@
 package Ass6_2230;
 
-import Ass5_2230.exceptions.ElementNotFoundException;
+import Ass6_2230.Exceptions.ElementNotFoundException;
 
 public class OrderedLinkedListTest {
     public static void main(String[] args) {

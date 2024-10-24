@@ -1,11 +1,12 @@
 package Ass6_2230;
 
-import Ass5_2230.exceptions.*;
+import Ass6_2230.Exceptions.*;
 
 public class OrderedArrayListTest {
     public static void main(String[] args) {
         // Create new list
         OrderedArrayList<Integer> list = new OrderedArrayList<Integer>();
+
 
         System.out.println("Testing sorted add method:");
         System.out.println("--------------------------");
@@ -50,6 +51,5 @@ public class OrderedArrayListTest {
         } catch (ElementNotFoundException e) {
             System.out.println("Throws ElementNotFoundException correctly.");
         }
-
     }
 }

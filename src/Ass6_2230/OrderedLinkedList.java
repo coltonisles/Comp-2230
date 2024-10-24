@@ -1,7 +1,6 @@
 package Ass6_2230;
 
-import Ass2_2230.exceptions.EmptyCollectionException;
-import Ass5_2230.exceptions.ElementNotFoundException;
+import Ass6_2230.Exceptions.*;
 
 public class OrderedLinkedList<T extends Comparable<T>> {
     private int count;
@@ -13,6 +12,10 @@ public class OrderedLinkedList<T extends Comparable<T>> {
 
     }
 
+    /**
+     * Adds an element to its place in the list.
+     * @param element element to add
+     */
     public void add(T element){
         LinearNode<T> node = new LinearNode<T>(element);
         if(head == null){
@@ -40,6 +43,12 @@ public class OrderedLinkedList<T extends Comparable<T>> {
 
     }
 
+    /**
+     * Deletes an element from the list.
+     * @param element element to delete
+     * @throws EmptyCollectionException
+     * @throws ElementNotFoundException
+     */
     public void delete(T element) throws EmptyCollectionException, ElementNotFoundException {
          LinearNode<T> current = head;
 
@@ -55,7 +64,7 @@ public class OrderedLinkedList<T extends Comparable<T>> {
         for (int i = 0; i < count; i++) {
             if (current.getNext() == null || current.getNext().getElement().compareTo(element) > 0) {
                 throw new ElementNotFoundException("Arraylist");
-            } else if (current.getNext().getElement() == element) {
+            } else if (current.getNext().getElement().equals(element)) {
                 current.setNext(current.getNext().getNext());
                 count--;
                 return;
@@ -65,6 +74,10 @@ public class OrderedLinkedList<T extends Comparable<T>> {
 
     }
 
+    /**
+     * Returns a string of items in the list.
+     * @return string of list items
+     */
     public String toString(){
         if(count == 0){
             return "Empty List";
