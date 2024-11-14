@@ -6,11 +6,12 @@ import java.util.Arrays;
 public class BinaryArrayTree<T extends Comparable<T>> {
 
     private T[] tree;
-    private static int DEFAULT_SIZE = 10;
+    private static final int DEFAULT_SIZE = 10;
     private int size;
 
+    @SuppressWarnings("unchecked")
     BinaryArrayTree() {
-        tree = (T[]) Array.newInstance(Comparable.class, DEFAULT_SIZE);
+        tree = (T[]) new Comparable[DEFAULT_SIZE];
     }
 
     public void insert(T element) {
