@@ -12,8 +12,18 @@ public class BinaryArrayTreeTest {
         System.out.println(bst);
         bst.insert(18);
         System.out.println(bst);
+        bst.insert(19);
+        System.out.println(bst);
         bst.insert(10);
         System.out.println(bst);
-        bst.printPreOrder(0);
+        bst.insert(7);
+        System.out.println(bst);
+        bst.insert(9);
+        System.out.println(bst);
+        bst.insert(2);
+        System.out.println(bst);
+        bst.insert(16);
+        System.out.println(bst);
+        System.out.println("Tree in Preorder: " + bst.toStringPreOrder());
     }
 }

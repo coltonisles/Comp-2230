@@ -7,7 +7,6 @@ public class BinaryArrayTree<T extends Comparable<T>> {
 
     private T[] tree;
     private static final int DEFAULT_SIZE = 10;
-    private int size;
 
     @SuppressWarnings("unchecked")
     BinaryArrayTree() {
@@ -15,16 +14,16 @@ public class BinaryArrayTree<T extends Comparable<T>> {
     }
 
     public void insert(T element) {
-        if(size == tree.length){
+        int position =  findElementPos(element, 0);
+        if(position >= tree.length) {
             expandCapacity();
         }
-        tree[findElementPos(element, 0)] = element;
-        size++;
+        tree[position] = element;
     }
 
     private int findElementPos(T element, int node) {
         int result;
-        if (tree[node] == null) {
+        if (node >= tree.length || tree[node] == null) {
             result = node;
         } else if (element.compareTo(tree[node]) < 0) {
             result = findElementPos(element, 2 * node + 1);
@@ -42,15 +41,22 @@ public class BinaryArrayTree<T extends Comparable<T>> {
     public String toString() {
         return Arrays.toString(tree);
     }
-    //replaces toString2 for better readability
-    public void printPreOrder(int node) {
+
+    public String toStringPreOrder() {
+        String result = preOrder(0, "");
+        return result.substring(0, result.length() - 2);
+    }
+
+    private String preOrder(int node, String s) {
+        String result = s;
         if(node < tree.length && tree[node] != null) {
             //visit root
-            System.out.println(tree[node] + " ");
+            result += tree[node] + ", ";
             //traverse left side
-            printPreOrder(2 * node + 1);
+            result = preOrder(2 * node + 1, result);
             //traverse right side
-            printPreOrder(2 * node + 2);
+            result = preOrder(2 * node + 2, result);
         }
+        return result;
     }
 }
