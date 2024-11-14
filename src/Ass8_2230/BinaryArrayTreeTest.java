@@ -14,5 +14,6 @@ public class BinaryArrayTreeTest {
         System.out.println(bst);
         bst.insert(10);
         System.out.println(bst);
+        bst.printPreOrder(0);
     }
 }
